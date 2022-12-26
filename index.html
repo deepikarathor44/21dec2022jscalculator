@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>calculator</title>
+        <style>
+            .mycalculator{
+                width: 600px;
+                height: 600px;
+                background: #222;
+                margin: 100px auto;
+                border-radius: 10.5px;
+                
+
+            }
+            .result{
+                width: 90%;
+                height: 80px;
+                background: #fff;
+                border-radius: 10px;
+                margin: 40px auto;
+                top: 30px;
+                position: relative;
+                text-align: right;
+                line-height: 80px;
+                font-size: 2em;
+                font-weight: bold;
+            }
+            .mytbl{
+                width: 100%;
+                height: 460px;
+                top: 20px;
+                position: relative;
+                color: aliceblue ;
+               
+                text-align: center;
+                border-radius: 10px;
+            }
+            table button{
+                padding: 20px;
+                font-size: 2em;
+                font-weight: bold;
+                border-radius: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mycalculator">
+            <div class="result">
+                
+
+            </div>
+            <table class="mytbl" border="white">
+                <tr>
+                    <td>
+                        <button onclick="hy(this)">7</button></td>
+                    <td>
+                        <button onclick="hy(this)">8</button></td>
+                    <td>
+                        <button onclick="hy(this)">9</button> </td>
+                    <td>
+                        <button onclick="hy(this)">X</button>
+                    </td> 
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="hy(this)">4</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">5</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">6</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">/</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="hy(this)">1</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">2</button>
+
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">3</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">-</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button onclick="hy(this)">0</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">.</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">=</button>
+                    </td>
+                    <td>
+                        <button onclick="hy(this)">+</button>
+                    </td>
+                </tr>
+                
+            </table>
+
+        </div>
+        
+
+
+
+
+        <script>
+
+           var  isOperatorButtonClicked = false;
+            //write the  js code before the closing of body tag
+
+                let rslt=document.querySelector("div.result");
+                var leftvalue;
+                var rightvalue;
+                var operator='';
+                            
+            //1.function defination
+             function hy(elem){
+            console.log(elem);
+            
+           
+            rslt.innerHTML=rslt.innerHTML + elem.innerHTML;
+            
+            switch(elem.innerHTML) {
+                    case 'X':
+                        isOperatorButtonClicked = true;
+                        // code block
+                        operator='X'
+                        window.localStorage.setItem('operator' ,'X');
+                        
+
+                        leftvalue=rslt.innerHTML;
+                        window.localStorage.setItem('leftvalue',leftvalue);
+                        console.log( 'leftvalue is',leftvalue);
+                        console.log('rightvalue is' ,rightvalue);
+
+                        console.log(elem.innerHTML);
+                        break;
+                    case '/':
+                    isOperatorButtonClicked = true;
+                        // code block
+                        break;
+                    case '+':
+                    isOperatorButtonClicked = true;
+                        // code block
+                        break;
+                    case '-':
+                    isOperatorButtonClicked = true;
+                        // code block
+                        break;
+                    case '=':
+                    isOperatorButtonClicked = false;
+                        // code block
+                        console.log('rslt');
+                        //console.log('LeftValue',leftvalue);
+                        //console.log('Operator is ' ,opertor);
+                        //console.log('RightValue is' ,rightvalue);
+                        leftvalue = window.localStorage.getItem('leftValue');
+                        rightvalue = window.localStorage.getItem('rightvalue');
+                        operator = window.localStorage.getItem('operator');
+
+                        switch(operator){
+                            case "X":
+                                leftvalue=parseFloat(leftvalue);
+                                rightvalue=parseFloat(rightvalue);
+                             console.log(leftvalue*rightvalue);
+                             rslt.innerHTML = leftvalue*rightvalue;
+                             rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
+                             console.log( rslt.innerHTML );
+
+                             break;
+
+                             default:
+                        }
+                        break;
+                    default:
+                        // code block
+                    }
+                    if(isOperatorButtonClicked== true){
+                rightvalue = elem.innerHTML;
+                console.log(elem.innerHTML);
+                rightValue=window.localStorage.setItem('RightValue', rightvalue);
+                console.log('Right value ',elem.innerHTML);
+
+            }
+
+            //console.log(elem.innerHTML);
+            
+            //console.log(rslt.innerHTML);
+
+
+
+        }
+
+        </script>
+    </body>
+</html>
