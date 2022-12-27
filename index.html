@@ -11,7 +11,7 @@
                 height: 600px;
                 background: #222;
                 margin: 100px auto;
-                border-radius: 10.5px;
+                border-radius: 20px;
                 
 
             }
@@ -42,7 +42,7 @@
                 padding: 20px;
                 font-size: 2em;
                 font-weight: bold;
-                border-radius: 10px;
+                border-radius: 20px;
             }
         </style>
     </head>
@@ -52,7 +52,11 @@
                 
 
             </div>
-            <table class="mytbl" border="white">
+            <table class="mytbl" >
+                
+                    
+              
+                
                 <tr>
                     <td>
                         <button onclick="hy(this)">7</button></td>
@@ -138,12 +142,13 @@
                         isOperatorButtonClicked = true;
                         // code block
                         operator='X'
-                        window.localStorage.setItem('operator' ,'X');
+                       // window.localStorage.setItem('operator' ,'X');
                         
 
                         leftvalue=rslt.innerHTML;
-                        window.localStorage.setItem('leftvalue',leftvalue);
+                        //window.localStorage.setItem('leftvalue',leftvalue);
                         console.log( 'leftvalue is',leftvalue);
+                        
                         console.log('rightvalue is' ,rightvalue);
 
                         console.log(elem.innerHTML);
@@ -151,33 +156,98 @@
                     case '/':
                     isOperatorButtonClicked = true;
                         // code block
+                        operator='/'
+                       // window.localStorage.setItem('operator' ,'/');
+                        
+
+                        leftvalue=rslt.innerHTML;
+                        //window.localStorage.setItem('leftvalue',leftvalue);
+                        console.log( 'leftvalue is',leftvalue);
+                        
+                        console.log('rightvalue is' ,rightvalue);
+
+                        console.log(elem.innerHTML);
                         break;
                     case '+':
                     isOperatorButtonClicked = true;
                         // code block
+                        operator='+'
+                       // window.localStorage.setItem('operator' ,'+');
+                        
+
+                        leftvalue=rslt.innerHTML;
+                        //window.localStorage.setItem('leftvalue',leftvalue);
+                        console.log( 'leftvalue is',leftvalue);
+                        
+                        console.log('rightvalue is' ,rightvalue);
+
+                        console.log(elem.innerHTML);
                         break;
                     case '-':
                     isOperatorButtonClicked = true;
                         // code block
+                        operator='-'
+                       // window.localStorage.setItem('operator' ,'-');
+                        
+
+                        leftvalue=rslt.innerHTML;
+                        //window.localStorage.setItem('leftvalue',leftvalue);
+                        console.log( 'leftvalue is',leftvalue);
+                        
+                        console.log('rightvalue is' ,rightvalue);
+
+                        console.log(elem.innerHTML);
                         break;
                     case '=':
                     isOperatorButtonClicked = false;
+                    
                         // code block
                         console.log('rslt');
-                        //console.log('LeftValue',leftvalue);
-                        //console.log('Operator is ' ,opertor);
-                        //console.log('RightValue is' ,rightvalue);
-                        leftvalue = window.localStorage.getItem('leftValue');
-                        rightvalue = window.localStorage.getItem('rightvalue');
-                        operator = window.localStorage.getItem('operator');
+                        console.log('LeftValue',leftvalue);
+                        console.log('Operator is ' ,operator);
+                        console.log('RightValue is' ,rightvalue);
+                        //leftvalue = window.localStorage.getItem('leftValue');
+                        //rightvalue = window.localStorage.getItem('rightvalue');
+                        //operator = window.localStorage.getItem('operator');
 
                         switch(operator){
                             case "X":
                                 leftvalue=parseFloat(leftvalue);
                                 rightvalue=parseFloat(rightvalue);
+                               
                              console.log(leftvalue*rightvalue);
                              rslt.innerHTML = leftvalue*rightvalue;
-                             rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
+                             //rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
+                             console.log( rslt.innerHTML );
+
+                             break;
+                             case "/":
+                                leftvalue=parseFloat(leftvalue);
+                                rightvalue=parseFloat(rightvalue);
+                               
+                             console.log(leftvalue/rightvalue);
+                             rslt.innerHTML = leftvalue/rightvalue;
+                             //rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
+                             console.log( rslt.innerHTML );
+
+                             break;
+                             case "+":
+                                leftvalue=parseFloat(leftvalue);
+                                rightvalue=parseFloat(rightvalue);
+                               
+                             console.log(leftvalue+rightvalue);
+                             rslt.innerHTML = leftvalue+rightvalue;
+                             //rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
+                             console.log( rslt.innerHTML );
+
+                             break;
+                             case "-":
+                                leftvalue=parseFloat(leftvalue);
+                                rightvalue=parseFloat(rightvalue);
+                               
+                             console.log(leftvalue-rightvalue);
+                             rslt.innerHTML = leftvalue-rightvalue;
+                             //rslt.innerHTML  =  rslt.innerHTML  .substring(0, string.length-1);
                              console.log( rslt.innerHTML );
 
                              break;
